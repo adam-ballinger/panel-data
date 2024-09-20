@@ -1,0 +1,31 @@
+{
+  "name": "panel-data",
+  "version": "1.0.0",
+  "description": "The panel-data npm package provides a PanelData object designed to store and manage panel-data formatted data. It supports efficient manipulation and analysis of time-series cross-sectional datasets, commonly used in supply chain management, logistics, and other domains requiring structured, row-oriented data handling.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon dev/dev.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adam-ballinger/panel-data.git"
+  },
+  "keywords": [
+    "panel-data",
+    "time-series",
+    "longitudinal-data",
+    "data-frame",
+    "supply-chain",
+    "logistics",
+    "cross-sectional"
+  ],
+  "author": "Adam Ballinger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adam-ballinger/panel-data/issues"
+  },
+  "homepage": "https://github.com/adam-ballinger/panel-data#readme"
+}
