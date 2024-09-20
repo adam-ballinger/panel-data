@@ -7,11 +7,11 @@
 
 ## 🚧 Work in Progress 🚧
 
-This module is currently under active development, and we are working hard to roll out new features in the coming weeks! 🎉
+This module is currently under active development, and we are working hard to roll out new features in the coming weeks.
 
 Find Details on what to expect on our GitHub [issues](https://github.com/adam-ballinger/panel-data/issues) and [Wiki](https://github.com/adam-ballinger/panel-data/wiki)
 
-Stay tuned for updates and thank you for your patience and support as we continue to improve this package! 😊
+Stay tuned for updates and thank you for your patience and support as we continue to improve this package!
 
 ## Overview
 
