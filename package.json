@@ -29,7 +29,9 @@
   },
   "homepage": "https://github.com/adam-ballinger/panel-data#readme",
   "files": [
-    "index.js"
+    "index.js",
+    "series.js",
+    "panel-data.js"
   ],
   "devDependencies": {
     "jest": "^29.7.0"
