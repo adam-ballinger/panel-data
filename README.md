@@ -27,48 +27,11 @@ I'm committed to making this npm package the best it can be, and need your input
 
 
 ## API
+For full documentation see our [API Wiki](https://github.com/adam-ballinger/panel-data/wiki/API)
 
 
 ## Contributing
-I’d love to welcome contributions for this module. Whether it’s bug fixes, new features, or improvements to the existing codebase, feedback and input is highly valued.
-
-#### How to Contribute
-**Fork the Repository:** Start by forking the repo to your own GitHub account.
-Clone the Repo: Clone your fork locally to work on it.
-```bash
-git clone https://github.com/adam-ballinger/supply-chain-rccp.git
-cd byte-packet
-```
-
-**Create a Branch:** Create a new branch to work on your changes.
-```bash
-git checkout -b my-new-feature
-```
-
-**Make Changes:** Implement your changes or additions.
-**Run Tests:** If you add new features or fix bugs, please run the tests to ensure the code remains stable. Write new tests for new features.
-```bash
-npm install --save-dev jest
-npm run test
-```
-
-**Lint your changes:** Lint your changes with the eslint.config.js file for consistency accross the library.
-```bash
-npm install --save-dev eslint
-npm run lint
-
-#Or if you want eslint to fix:
-
-npm run lint:fix
-```
-
-**Commit and Push:** Commit your changes and push them to your forked repository.
-```bash
-git add .
-git commit -m "Description of your changes"
-git push origin my-new-feature
-```
-**Create a Pull Request:** Once your changes are ready, create a pull request to the main repository. You can do this by visiting this link [Pull Requests](https://github.com/adam-ballinger/supply-chain-rccp/pulls).
+Interested in contributing? [See how to contribute](https://github.com/adam-ballinger/panel-data/wiki/Contributing), we'd love your help.
 
 ## License
 
@@ -83,5 +46,6 @@ I'm excited about Node.js and npm. My focus is on writing code that works seamle
 I believe in the importance of writing code as human-friendly as possible. I am an amateur with much to learn, I am dedicated to improving my skills and would appreciate any feedback or guidance from the community.
 
 ## To-Do
+See our To-Do list or submit your own feature requests on [GitHub Issues](https://github.com/adam-ballinger/panel-data/issues)
 
 

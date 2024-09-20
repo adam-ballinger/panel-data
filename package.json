@@ -27,5 +27,11 @@
   "bugs": {
     "url": "https://github.com/adam-ballinger/panel-data/issues"
   },
-  "homepage": "https://github.com/adam-ballinger/panel-data#readme"
+  "homepage": "https://github.com/adam-ballinger/panel-data#readme",
+  "files": [
+    "index.js"
+  ],
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
