@@ -26,8 +26,8 @@ I'm committed to making this npm package the best it can be, and need your input
 ## Usage
 
 
-## API
-For full documentation see our [API Wiki](https://github.com/adam-ballinger/panel-data/wiki/API)
+## Documentation
+For full documentation see our [GitHub Wiki](https://github.com/adam-ballinger/panel-data/wiki/documentaion)
 
 
 ## Contributing
