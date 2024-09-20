@@ -1,6 +1,6 @@
 {
   "name": "panel-data",
-  "version": "1.0.3",
+  "version": "0.0.1",
   "description": "The panel-data npm package provides a PanelData object designed to store and manage panel-data formatted data. It supports efficient manipulation and analysis of time-series cross-sectional datasets, commonly used in supply chain management, logistics, and other domains requiring structured, row-oriented data handling.",
   "main": "index.js",
   "scripts": {
