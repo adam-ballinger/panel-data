@@ -1,58 +1,77 @@
+// Initialize data efficiently (typed arrays for numeric data)
+function initializeData(data) {
+  if (Array.isArray(data)) {
+    if (data.every(Number.isInteger)) {
+      return new Int32Array(data);
+    }
+    if (data.every(v => typeof v === 'number')) {
+      return new Float64Array(data);
+    }
+    return data; // Fallback to standard array for mixed or object data
+  }
+  throw new Error('Data must be an array or typed array');
+}
+
+// Create a default index
+function createDefaultIndex(length) {
+  return Array.from({ length }, (_, i) => i); // Default index [0, 1, 2, ...]
+}
+
+// Infer the dtype
+function inferDtype(data) {
+  if (data instanceof Int32Array) {
+    return 'int32';
+  }
+  if (data instanceof Float64Array) {
+    return 'float64';
+  }
+      
+  // Check if all elements are integers
+  if (Array.isArray(data) && data.every(Number.isInteger)) {
+    return 'int32';
+  }
+      
+  // Check if all elements are numbers
+  if (Array.isArray(data) && data.every(v => typeof v === 'number')) {
+    return 'float64';
+  }
+      
+  // Check if the data is a string array (object dtype)
+  if (Array.isArray(data) && data.every(v => typeof v === 'string')) {
+    return 'object';
+  }
+
+  // Check if the data is a boolean array
+  if (Array.isArray(data) && data.every(v => typeof v === 'boolean')) {
+    return 'boolean';
+  }
+    
+  return 'mixed'; // Fallback for mixed types
+}
+
 class Series {
   constructor(data, options = {}) {
-    this._data = this._initializeData(data);  // Efficiently store the data
-    this._index = options.index || this._createDefaultIndex(data.length); // Create or assign index
-    this.name = options.name || null; // Name of the series
-    this.dtype = this._inferDtype(data); // Infer data type for better memory handling
+    this._data = initializeData(data);  
+    this._index = options.index || createDefaultIndex(data.length); 
+    this.name = options.name || null; 
+    this.dtype = inferDtype(data); 
   }
   
-  // Initialize data efficiently (typed arrays for numeric data)
-  _initializeData(data) {
-    if (Array.isArray(data)) {
-      if (data.every(Number.isInteger)) {
-        return new Int32Array(data);
-      }
-      if (data.every(v => typeof v === 'number')) {
-        return new Float64Array(data);
-      }
-      return data; // Fallback to standard array for mixed or object data
-    }
-    throw new Error('Data must be an array or typed array');
+  // Check if an object is a Series
+  static isSeries(obj) {
+    return obj && typeof obj === 'object' && obj.constructor.name === 'Series';
   }
   
-  // Create a default index
-  _createDefaultIndex(length) {
-    return Array.from({ length }, (_, i) => i); // Default index [0, 1, 2, ...]
+  // Method to get the values of a Series
+  get values() {
+    return this._data;
   }
-  
-  // Infer the dtype (similar to pandas)
-  _inferDtype(data) {
-    if (data instanceof Int32Array) {
-      return 'int32';
-    }
-    if (data instanceof Float64Array) {
-      return 'float64';
-    }
-        
-    // Check if all elements are integers
-    if (Array.isArray(data) && data.every(Number.isInteger)) {
-      return 'int32';
-    }
-        
-    // Check if all elements are numbers
-    if (Array.isArray(data) && data.every(v => typeof v === 'number')) {
-      return 'float64';
-    }
-        
-    // Check if the data is a string array (object dtype)
-    if (Array.isArray(data) && data.every(v => typeof v === 'string')) {
-      return 'object';
-    }
-      
-    return 'mixed'; // Fallback for mixed types
+
+  // Method to get the values of a Series in an Array
+  get toArray() {
+    return Array.from(this._data);
   }
-      
-  
+
   // Method to get data at specific index
   at(index) {
     const idx = this._index.indexOf(index);
@@ -60,7 +79,7 @@ class Series {
   }
   
   // Method to return the sum (for numeric types)
-  sum() {
+  get sum() {
     if (this.dtype === 'int32' || this.dtype === 'float64') {
       return this._data.reduce((acc, val) => acc + val, 0);
     }
@@ -80,16 +99,15 @@ class Series {
     return new Series(filteredData, { index: filteredIndex, name: this.name, dtype: this.dtype });
   }
   
-  // Add more methods like mean, min, max, etc.
-  mean() {
+  get mean() {
     if (this.dtype === 'int32' || this.dtype === 'float64') {
-      return this.sum() / this._data.length;
+      return this.sum / this._data.length;
     }
     throw new Error('Mean is only available for numeric types');
   }
   
   // Convert Series to JSON (for exporting)
-  toJSON() {
+  get toJSON() {
     return {
       data: Array.from(this._data), // Convert to regular array
       index: this._index,
@@ -98,7 +116,16 @@ class Series {
     };
   }
   
-  // Other utility methods...
+  // Method to count non-null values
+  get countNonNull() {
+    return this._data.reduce((count, value) => {
+      if (value !== null && value !== undefined && !Number.isNaN(value)) {
+        count++;
+      }
+      return count;
+    }, 0);
+  }
+  
 }
   
 

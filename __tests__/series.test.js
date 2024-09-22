@@ -1,5 +1,6 @@
 // Series.test.js
 const Series = require('../series');
+const testData = require('../sample-data/supply-chain-test-data')
 
 describe('Series Class', () => {
   
@@ -65,12 +66,12 @@ describe('Series Class', () => {
     
     test('should correctly sum numeric data', () => {
       const series = new Series([1, 2, 3, 4]);
-      expect(series.sum()).toBe(10);
+      expect(series.sum).toBe(10);
     });
 
     test('should throw an error when summing non-numeric data', () => {
       const series = new Series(['a', 'b', 'c']);
-      expect(() => series.sum()).toThrow('Sum is only available for numeric types');
+      expect(() => series.sum).toThrow('Sum is only available for numeric types');
     });
 
   });
@@ -79,12 +80,12 @@ describe('Series Class', () => {
     
     test('should correctly calculate the mean of numeric data', () => {
       const series = new Series([1, 2, 3, 4]);
-      expect(series.mean()).toBe(2.5);
+      expect(series.mean).toBe(2.5);
     });
 
     test('should throw an error when calculating mean for non-numeric data', () => {
       const series = new Series(['a', 'b', 'c']);
-      expect(() => series.mean()).toThrow('Mean is only available for numeric types');
+      expect(() => series.mean).toThrow('Mean is only available for numeric types');
     });
 
   });
@@ -135,7 +136,7 @@ describe('Series Class', () => {
     
     test('should serialize the Series to a JSON object', () => {
       const series = new Series([10, 20, 30], { index: ['a', 'b', 'c'], name: 'Test' });
-      const json = series.toJSON();
+      const json = series.toJSON;
       expect(json).toEqual({
         data: [10, 20, 30],
         index: ['a', 'b', 'c'],
@@ -145,5 +146,22 @@ describe('Series Class', () => {
     });
 
   });
+
+  describe('countNonNull Method', () => {
+
+    test('should count the number of non-null values', () => {
+      const series = new Series([1, 2, null, NaN, undefined]);
+      expect(series.countNonNull).toBe(2);
+    })
+  })
+
+  describe('toArray Method', () => {
+    
+    test('should convert a series back to a regular Array', () => {
+      const series = new Series(testData.openOrders.productID);
+      expect(series.toArray).toEqual(testData.openOrders.productID);
+    })
+
+  })
 
 });

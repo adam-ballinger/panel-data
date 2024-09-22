@@ -20,13 +20,47 @@ panel-data provides a PanelData object designed to store and manage panel-data s
 npm install panel-data
 ```
 
+## Example Usage
+
+Right now, you can use the `PanelData` and `Series` classes to store and manipulate data in a format similar to `pandas` DataFrames and Series in Python.
+
+```javascript
+const PanelData = require('./panel-data');
+const Series = require('./series');
+
+// Create a few Series objects
+const observations = new Series([7, 6, 8, 7], { name: 'Observations', index: [1, 2, 3, 4] });
+const day = new Series(['Monday', 'Tuesday', 'Wednesday', 'Thursday'], { name: 'Day', index: [1, 2, 3, 4] });
+const conditionsMet = new Series([true, true, false, true], { name: 'Conditions Met', index: [1, 2, 3, 4] });
+
+// Create a PanelData object from an array of Series objects
+const panelData = new PanelData([observations, day, conditionsMet]);
+
+// Access some useful information
+console.log(panelData.columns); // ['Observations', 'Day', 'Conditions Met']
+console.log(panelData.index);   // [1, 2, 3, 4]
+console.log(panelData.shape);   // [4, 3]
+console.log(panelData.dtypes.toArray()); // ['int32', 'object', 'boolean']
+
+// Get a summary of the data
+console.log(panelData.info);
+
+// Convert the PanelData back to a regular JavaScript object
+console.log(panelData.toJSON);
+
+// Count non-null values in each series
+console.log(panelData.countNonNull.toArray()); // [4, 4, 4]
+```
+
+see the [GitHub Wiki](https://github.com/adam-ballinger/panel-data/wiki) for full documentation.
+
 ## Help Improve – Your Feedback Matters! 🚀
 I'm committed to making this npm package the best it can be, and need your input to do it! If this package was useful, met your expectations, or if it fell short in some way, I'd love to hear from you. Your feedback will help me understand what's working and what features are in demand.
 
 👉 [Click here](https://tinyurl.com/4hm58xc2) to give feedback in less than 60 seconds – your insights will directly influence future updates and features. Thank you for your insights! 🙌
 
-## Documentation
-For Getting Started, User Guide, and API Reference, see the [GitHub Wiki](https://github.com/adam-ballinger/panel-data/wiki)
+## Release Notes
+Check out the [Release Notes](https://github.com/adam-ballinger/panel-data/releases)
 
 ## Contributing
 Interested in contributing? [See how to contribute](https://github.com/adam-ballinger/panel-data/wiki/Developer-Guide), I'd love your help.
