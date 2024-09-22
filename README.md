@@ -59,6 +59,8 @@ I'm committed to making this npm package the best it can be, and need your input
 
 👉 [Click here](https://tinyurl.com/4hm58xc2) to give feedback in less than 60 seconds – your insights will directly influence future updates and features. Thank you for your insights! 🙌
 
+![QR Code](https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=tinyurl.com/4hm58xc2&margin=10)
+
 ## Release Notes
 Check out the [Release Notes](https://github.com/adam-ballinger/panel-data/releases)
 
