@@ -57,7 +57,7 @@ see the [GitHub Wiki](https://github.com/adam-ballinger/panel-data/wiki) for ful
 ## Help Improve – Your Feedback Matters! 🚀
 I'm committed to making this npm package the best it can be, and need your input to do it! If this package was useful, met your expectations, or if it fell short in some way, I'd love to hear from you. Your feedback will help me understand what's working and what features are in demand.
 
-👉 [Click here](https://tinyurl.com/4hm58xc2) to give feedback in less than 60 seconds – your insights will directly influence future updates and features. Thank you for your insights! 🙌
+👉 [Click here](https://tinyurl.com/4hm58xc2) or scan the QR code to give feedback in less than 60 seconds – your insights will directly influence future updates and features. Thank you for your insights! 🙌
 
 [![QR Code](https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=tinyurl.com/4hm58xc2&margin=10)](https://tinyurl.com/4hm58xc2)
 
